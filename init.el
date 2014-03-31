@@ -41,7 +41,7 @@
 (add-to-list 'custom-theme-load-path
               "~/.emacs.d/emacs-color-theme/")
 (load-theme 'solarized-light t)
-(set-default-font "-outline-consolas-normal-r-normal-normal-18-97-96-96-c-*-iso8859-1")
+(set-default-font "-outline-Consolas-normal-r-normal-normal-18-97-96-96-c-*-iso8859-1")
 ; (setq default-frame-alist '((font . "Inconsolata-18"))) 
 
 (add-to-list 'load-path 
@@ -251,14 +251,6 @@ Return a list of one element based on major mode."
                                (setq ruby-deep-indent-paren nil)
                                (setq c-tab-always-indent nil)
                                (require 'inf-ruby)
-                                ; (require 'grizzl)
-                                ; (projectile-global-mode)
-                                ; (setq projectile-enable-caching t)
-                                ; (setq projectile-completion-system 'grizzl)
-                                ; ;; Press Command-p for fuzzy find in project
-                                ; (global-set-key (kbd "s-p") 'projectile-find-file)
-                                ; ;; Press Command-b for fuzzy switch buffer
-                                ; (global-set-key (kbd "s-b") 'projectile-switch-to-buffer)
                                (require 'ruby-compilation))))
 (eval-after-load 'ruby-mode
   '(progn
@@ -308,3 +300,17 @@ Return a list of one element based on major mode."
 
 (require 'highlight-indentation)
 (highlight-indentation-current-column-mode t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Projectile
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path
+              "~/.emacs.d/grizzl")
+(require 'grizzl)
+(projectile-global-mode)
+(setq projectile-enable-caching t)
+(setq projectile-completion-system 'grizzl)
+;; Press Command-p for fuzzy find in project
+(global-set-key (kbd "s-p") 'projectile-find-file)
+;; Press Command-b for fuzzy switch buffer
+(global-set-key (kbd "s-b") 'projectile-switch-to-buffer)
