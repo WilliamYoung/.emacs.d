@@ -225,11 +225,13 @@ Return a list of one element based on major mode."
 (ac-config-default)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;Ruby
+;;Ruby enhanced-ruby-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path
               "~/.emacs.d/ruby")
 ; (autoload 'ruby-mode "ruby-mode" nil 1)
+(add-to-list 'load-path
+              "~/.emacs.d/enhanced-ruby-mode")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Ruby Tool
@@ -239,7 +241,8 @@ Return a list of one element based on major mode."
 ; (require 'ruby-tools)
 
 (defun ruby-mode-hook ()
-  (autoload 'ruby-mode "ruby-mode" nil t)
+  ; (autoload 'ruby-mode "ruby-mode" nil t)
+  (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
   (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
   (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
   (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
@@ -251,7 +254,11 @@ Return a list of one element based on major mode."
                                (setq ruby-deep-indent-paren nil)
                                (setq c-tab-always-indent nil)
                                (require 'inf-ruby)
+                               (require 'robe-mode)
                                (require 'ruby-compilation))))
+  ; (add-hook 'ruby-mode-hook 'robe-mode)
+  (add-hook 'robe-mode-hook 'ac-robe-setup)
+
 (eval-after-load 'ruby-mode
   '(progn
     (require 'ruby-tools)
@@ -259,9 +266,6 @@ Return a list of one element based on major mode."
     (ruby-block-mode t)
     (setq ruby-block-highlight-toggle t)))
 
-; (add-hook 'ruby-mode-hook 'projectile-on)
-
-; (projectile-global-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Cucumber
@@ -324,3 +328,12 @@ Return a list of one element based on major mode."
 (setq speedbar-show-unknown-files t)
 (setq dframe-update-speed t)        ; prevent the speedbar to update the current state, since it is always changing
 (sr-speedbar-toggle)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; expand-region
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path
+              "~/.emacs.d/expand-region")
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
