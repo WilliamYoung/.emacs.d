@@ -179,14 +179,6 @@ Return a list of one element based on major mode."
 ; (ido-mode t)
 ; (setq ido-auto-merge-work-directories-length -1) 
 
-; (require 'ide-skel)
-(require 'multiple-line-edit)
-
-(require 'dirtree)
-(defun ep-dirtree ()
-  (interactive)
-  (dirtree-in-buffer eproject-root t))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; YASnippet
@@ -337,3 +329,14 @@ Return a list of one element based on major mode."
               "~/.emacs.d/expand-region")
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; multiple-cursors
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path
+              "~/.emacs.d/multiple-cursors")
+(require 'multiple-cursors)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
