@@ -311,6 +311,16 @@ Return a list of one element based on major mode."
 (setq projectile-enable-caching t)
 (setq projectile-completion-system 'grizzl)
 ;; Press Command-p for fuzzy find in project
-(global-set-key (kbd "s-p") 'projectile-find-file)
-;; Press Command-b for fuzzy switch buffer
-(global-set-key (kbd "s-b") 'projectile-switch-to-buffer)
+; (global-set-key (kbd "s-p") 'projectile-find-file)
+; ;; Press Command-b for fuzzy switch buffer
+; (global-set-key (kbd "s-b") 'projectile-switch-to-buffer)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; sr-speedbar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'sr-speedbar)
+(setq sr-speedbar-right-side t)
+; (setq sr-speedbar-width 25)
+(setq speedbar-show-unknown-files t)
+(setq dframe-update-speed t)        ; prevent the speedbar to update the current state, since it is always changing
+(sr-speedbar-toggle)
