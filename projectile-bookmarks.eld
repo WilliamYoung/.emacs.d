@@ -1,1 +1,1 @@
-("~/.emacs.d/")
+("c:/Toolkit/WatirMelonVVD/WatirMelonVVD_20140303/" "~/.emacs.d/")

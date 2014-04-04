@@ -255,6 +255,7 @@ Return a list of one element based on major mode."
   '(progn
     (require 'ruby-tools)
     (require 'ruby-block)
+    (require 'robe-mode)
     (ruby-block-mode t)
     (setq ruby-block-highlight-toggle t)))
 
@@ -307,7 +308,7 @@ Return a list of one element based on major mode."
 (setq projectile-enable-caching t)
 (setq projectile-completion-system 'grizzl)
 ;; Press Command-p for fuzzy find in project
-; (global-set-key (kbd "s-p") 'projectile-find-file)
+(global-set-key (kbd "M-p") 'projectile-find-file)
 ; ;; Press Command-b for fuzzy switch buffer
 ; (global-set-key (kbd "s-b") 'projectile-switch-to-buffer)
 
@@ -331,6 +332,7 @@ Return a list of one element based on major mode."
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; multiple-cursors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -340,3 +342,19 @@ Return a list of one element based on major mode."
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-S-c") 'mc/edit-lines)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; code comment
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)
+        ; (next-line)
+        ))
+(global-set-key (kbd "C-M-;") 'comment-or-uncomment-region-or-line)
