@@ -246,6 +246,7 @@ Return a list of one element based on major mode."
                                (setq ruby-deep-indent-paren nil)
                                (setq c-tab-always-indent nil)
                                (require 'inf-ruby)
+                               (flymake-ruby-load)
                                ; (require 'robe-mode)
                                (require 'ruby-compilation))))
   ; (add-hook 'ruby-mode-hook 'robe-mode)
@@ -255,6 +256,7 @@ Return a list of one element based on major mode."
   '(progn
     (require 'ruby-tools)
     (require 'ruby-block)
+    (require 'flymake-ruby)
     ; (require 'robe-mode)
     (ruby-block-mode t)
     (setq ruby-block-highlight-toggle t)))
