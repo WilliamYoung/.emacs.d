@@ -79,7 +79,7 @@
 (tabbar-mode t)
 (require 'tabbar-ruler)
 
-;; define tabbar group
+; define tabbar group
 (defun tabbar-buffer-groups () 
   "Return the list of group names the current buffer belongs to. 
 Return a list of one element based on major mode." 
@@ -246,7 +246,7 @@ Return a list of one element based on major mode."
                                (setq ruby-deep-indent-paren nil)
                                (setq c-tab-always-indent nil)
                                (require 'inf-ruby)
-                               (require 'robe-mode)
+                               ; (require 'robe-mode)
                                (require 'ruby-compilation))))
   ; (add-hook 'ruby-mode-hook 'robe-mode)
   (add-hook 'robe-mode-hook 'ac-robe-setup)
@@ -255,7 +255,7 @@ Return a list of one element based on major mode."
   '(progn
     (require 'ruby-tools)
     (require 'ruby-block)
-    (require 'robe-mode)
+    ; (require 'robe-mode)
     (ruby-block-mode t)
     (setq ruby-block-highlight-toggle t)))
 
@@ -319,7 +319,7 @@ Return a list of one element based on major mode."
 (setq sr-speedbar-right-side t)
 ; (setq sr-speedbar-width 25)
 (setq speedbar-show-unknown-files t)
-(setq dframe-update-speed t)        ; prevent the speedbar to update the current state, since it is always changing
+; (setq dframe-update-speed t)        ; prevent the speedbar to update the current state, since it is always changing
 (sr-speedbar-toggle)
 
 
