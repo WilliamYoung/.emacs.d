@@ -34,7 +34,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-linum-mode t)
 (column-number-mode t)
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Tab adjust
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq indent-tabs-mode nil)
+(setq default-tab-width 4)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Tomorrow Theme
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -204,7 +208,7 @@ Return a list of one element based on major mode."
 (require 'yasnippet)
 (setq yas-snippet-dirs "~/.emacs.d/yasnippet/snippets")
 (yas-global-mode 1)
-
+(yas/minor-mode-on)
 
 
 ; (require 'simp)
@@ -404,5 +408,39 @@ Return a list of one element based on major mode."
   (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'html-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook  'emmet-mode)
+  (add-hook 'web-mode-hook  'emmet-mode)
   (setq emmet-preview-default nil)
-  ; (add-hook 'emmet-mode-keymap (define-key map (kbd "tab") 'emmet-expand-line))
+  ; (local-set-key (kbd "tab") 'emmet-expand-line)
+(add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2) (local-set-key (kbd "<tab>") 'emmet-expand-line)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Web Mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; (require 'web-mode)
+;   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+;   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+;   (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+;   (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+;   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+;   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+;   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+; (setq web-mode-enable-css-colorization t)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; CSS-Color-Shown
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'css-color-shown)
+  (add-hook 'html-mode-hook 'xah-syntax-color-hex)
+
+
+
+
+
+
+
+
+
