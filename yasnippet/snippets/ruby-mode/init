@@ -4,4 +4,4 @@
 # --
 def initialize(${1:args})
     $0
-end
+end #initialize

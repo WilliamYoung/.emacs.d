@@ -1,1 +1,1 @@
-("~/.emacs.d/")
+("~/scripts/Depot/" "~/.emacs.d/")
