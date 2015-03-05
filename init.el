@@ -226,15 +226,14 @@ Return a list of one element based on major mode."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Ruby enhanced-ruby-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/.emacs.d/ruby")
+; (add-to-list 'load-path "~/.emacs.d/ruby")
 ; (autoload 'ruby-mode "ruby-mode" nil 1)
 (add-to-list 'load-path "~/.emacs.d/enhanced-ruby-mode")
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Ruby Tool
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path
-              "~/.emacs.d/ruby-tools")
+; (add-to-list 'load-path "~/.emacs.d/ruby-tools")
 ; (require 'ruby-tools)
 (add-to-list 'load-path
               "~/.emacs.d/enhanced-ruby-mode")
