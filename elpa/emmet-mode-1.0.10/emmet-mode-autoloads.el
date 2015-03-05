@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "emmet-mode" "emmet-mode.el" (21752 4536 0
+;;;### (autoloads nil "emmet-mode" "emmet-mode.el" (21752 7072 0
 ;;;;;;  0))
 ;;; Generated autoloads from emmet-mode.el
 
@@ -52,6 +52,21 @@ This will show a preview of the expanded emmet code and you can
 accept it or skip it.
 
 \(fn BEG END)" t nil)
+
+(autoload 'emmet-wrap-with-markup "emmet-mode" "\
+Wrap region with markup.
+
+\(fn WRAP-WITH)" t nil)
+
+(autoload 'emmet-next-edit-point "emmet-mode" "\
+
+
+\(fn COUNT)" t nil)
+
+(autoload 'emmet-prev-edit-point "emmet-mode" "\
+
+
+\(fn COUNT)" t nil)
 
 ;;;***
 
