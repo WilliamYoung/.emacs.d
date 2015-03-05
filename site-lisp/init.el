@@ -20,7 +20,7 @@
  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Tool Bar
+;; Tool Bar (-1 to disable)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (tool-bar-mode -1)
 
@@ -41,11 +41,11 @@
 (add-to-list 'custom-theme-load-path
               "~/.emacs.d/emacs-color-theme/")
 (load-theme 'solarized-light t)
-(set-default-font "-outline-Consolas-normal-r-normal-normal-18-97-96-96-c-*-iso8859-1")
-; (setq default-frame-alist '((font . "Inconsolata-18"))) 
+(set-default-font "-outline-Inconsolata-normal-r-normal-normal-18-97-96-96-c-*-iso8859-1")
+(setq default-frame-alist '((font . "Inconsolata-22"))) 
 
-(add-to-list 'load-path 
-				"~/.emacs.d/")
+; (add-to-list 'load-path 
+; 				"~/.emacs.d/")
 
 ; ;; Interactively Do Things (highly recommended, but not strictly required)
 ; (require 'ido)
@@ -74,7 +74,7 @@
 ;; Tabbar mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path 
-				"~/.emacs.d/")
+				"~/.emacs.d/site-lisp/")
 (require 'tabbar)
 (tabbar-mode t)
 (require 'tabbar-ruler)
@@ -126,65 +126,71 @@ Return a list of one element based on major mode."
      )))) 
 
 ;; set tabbar preference
-; (set-face-attribute 'tabbar-default nil 
-;                     :inherit nil 
-;                     :weight 'normal 
-;                     :width 'normal 
-;                     :slant 'normal 
-;                     :underline nil 
-;                     :strike-through nil 
-;                     ;; inherit from frame                   :inverse-video 
-;                     :stipple nil 
-;                     :background "gray80" 
-;                     :foreground "black" 
-;                     ;;              :box '(:line-width 2 :color "white" :style nil) 
-;                     :box nil 
-;                     :family "Lucida Grande" 
-;                     ) 
-; (set-face-attribute 'tabbar-selected nil 
-;                     :background "gray95" 
-;                     :foreground "gray20" 
-;                     :inherit 'tabbar-default 
-;                     :box '(:line-width 3 :color "grey95" :style nil)) 
-; ;;                  :box '(:line-width 2 :color "white" :style released-button)) 
-; (set-face-attribute 'tabbar-unselected nil 
-;                     :inherit 'tabbar-default 
-;                     :background "gray80" 
-;                     :box '(:line-width 3 :color "grey80" :style nil)) 
-; (defface tabbar-selected-highlight '((t 
-;                                       :foreground "black" 
-;                                       :background "gray95")) 
-;   "Face for selected, highlighted tabs." 
-;   :group 'tabbar) 
-; (defface tabbar-unselected-highlight '((t 
-;                                         :foreground "black" 
-;                                         :background "grey75" 
-;                                         :box (:line-width 3 :color "grey75" :style nil))) 
-;   "Face for unselected, highlighted tabs." 
-;   :group 'tabbar) 
-; (set-face-attribute 'tabbar-button nil 
-;                     :inherit 'tabbar-default 
-;                     :box nil) 
-; (set-face-attribute 'tabbar-separator nil 
-;                     :background "grey50" 
-;                     :foreground "grey50" 
-;                     :height 1.0) 
+(set-face-attribute 'tabbar-default nil 
+                    :inherit nil 
+                    :weight 'normal 
+                    :width 'normal 
+                    :slant 'normal 
+                    :underline nil 
+                    :strike-through nil 
+                    ;; inherit from frame                   :inverse-video 
+                    :stipple nil 
+                    :background "gray80" 
+                    :foreground "black" 
+                    ;;              :box '(:line-width 2 :color "white" :style nil) 
+                    :box nil 
+                    :family "Lucida Grande" 
+                    ) 
+(set-face-attribute 'tabbar-selected nil 
+                    :background "gray95" 
+                    :foreground "gray20" 
+                    :inherit 'tabbar-default 
+                    :box '(:line-width 3 :color "grey95" :style nil)) 
+;;                  :box '(:line-width 2 :color "white" :style released-button)) 
+(set-face-attribute 'tabbar-unselected nil 
+                    :inherit 'tabbar-default 
+                    :background "gray80" 
+                    :box '(:line-width 3 :color "grey80" :style nil)) 
+(defface tabbar-selected-highlight '((t 
+                                      :foreground "black" 
+                                      :background "gray95")) 
+  "Face for selected, highlighted tabs." 
+  :group 'tabbar) 
+(defface tabbar-unselected-highlight '((t 
+                                        :foreground "black" 
+                                        :background "grey75" 
+                                        :box (:line-width 3 :color "grey75" :style nil))) 
+  "Face for unselected, highlighted tabs." 
+  :group 'tabbar) 
+(set-face-attribute 'tabbar-button nil 
+                    :inherit 'tabbar-default 
+                    :box nil) 
+(set-face-attribute 'tabbar-separator nil 
+                    :background "grey50" 
+                    :foreground "grey50" 
+                    :height 1.0) 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 
+;; ido
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; (require 'ido)
 ; (ido-mode t)
 ; (setq ido-auto-merge-work-directories-length -1) 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Windows Key mapping
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq w32-pass-lwindow-to-system nil)
+(setq w32-lwindow-modifier 'super)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; YASnippet
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path
-              "~/.emacs.d/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/yasnippet")
 (require 'yasnippet)
 (setq yas-snippet-dirs "~/.emacs.d/yasnippet/snippets")
 (yas-global-mode 1)
@@ -192,7 +198,9 @@ Return a list of one element based on major mode."
 
 
 
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ELPA package mgmt
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'package)
 (add-to-list 'package-archives 
     '("marmalade" .
@@ -208,39 +216,40 @@ Return a list of one element based on major mode."
 ; (global-set-key [(control p)] 'simp-project-find-file)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;autocomplete;;
+;;autocomplete
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (add-to-list 'load-path "~/.emacs.d/autocomplete/")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/autocomplete//ac-dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/autocomplete/ac-dict")
 (ac-config-default)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Ruby enhanced-ruby-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path
-              "~/.emacs.d/ruby")
+(add-to-list 'load-path "~/.emacs.d/ruby")
 ; (autoload 'ruby-mode "ruby-mode" nil 1)
-(add-to-list 'load-path
-              "~/.emacs.d/enhanced-ruby-mode")
-
+(add-to-list 'load-path "~/.emacs.d/enhanced-ruby-mode")
+(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Ruby Tool
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path
               "~/.emacs.d/ruby-tools")
 ; (require 'ruby-tools)
+(add-to-list 'load-path
+              "~/.emacs.d/enhanced-ruby-mode")
 
 (defun ruby-mode-hook ()
-  ; (autoload 'ruby-mode "ruby-mode" nil t)
+  (autoload 'ruby-mode "ruby-mode" nil t)
   (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
-  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("Capfile" . enh-ruby-mode))
+  (add-to-list 'auto-mode-alist '("Gemfile" . enh-ruby-mode))
+  (add-to-list 'auto-mode-alist '("Rakefile" . enh-ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rake\\'" . enh-ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rb\\'" . enh-ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.ru\\'" . enh-ruby-mode)))
+
   (add-hook 'ruby-mode-hook '(lambda ()
                                (setq ruby-deep-arglist t)
                                (setq ruby-deep-indent-paren nil)
@@ -248,11 +257,14 @@ Return a list of one element based on major mode."
                                (require 'inf-ruby)
                                (flymake-ruby-load)
                                ; (require 'robe-mode)
-                               (require 'ruby-compilation))))
-  ; (add-hook 'ruby-mode-hook 'robe-mode)
-  (add-hook 'robe-mode-hook 'ac-robe-setup)
+                               (require 'ruby-compilation)))
 
-(eval-after-load 'ruby-mode
+  (add-hook 'robe-mode-hook 'ac-robe-setup)
+  (add-hook 'ruby-mode-hook 'robe-mode)
+
+  (add-hook 'ruby-mode 'ruby-mode-hook)
+
+(eval-after-load 'enh-ruby-mode
   '(progn
     (require 'ruby-tools)
     (require 'ruby-block)
@@ -310,13 +322,25 @@ Return a list of one element based on major mode."
 (setq projectile-enable-caching t)
 (setq projectile-completion-system 'grizzl)
 ;; Press Command-p for fuzzy find in project
-(global-set-key (kbd "M-p") 'projectile-find-file)
+; (global-set-key (kbd "M-p") 'projectile-find-file)
+(global-set-key (kbd "s-p") 'projectile-find-file)
 ; ;; Press Command-b for fuzzy switch buffer
 ; (global-set-key (kbd "s-b") 'projectile-switch-to-buffer)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sr-speedbar
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun ad-advised-definition-p (definition)
+  "Return non-nil if DEFINITION was generated from advice information."
+  (if (or (ad-lambda-p definition)
+    (macrop definition)
+    (ad-compiled-p definition))
+      (let ((docstring (ad-docstring definition)))
+  (and (stringp docstring)
+       (get-text-property 0 'dynamic-docstring-function docstring)))))
+
+
 (require 'sr-speedbar)
 (setq sr-speedbar-right-side t)
 ; (setq sr-speedbar-width 25)
@@ -357,6 +381,34 @@ Return a list of one element based on major mode."
             (setq beg (region-beginning) end (region-end))
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)
-        ; (next-line)
+        (next-line)
+        (previous-line)
         ))
-(global-set-key (kbd "C-M-;") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region-or-line)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; textmate.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; (add-to-list 'load-path "~/.emacs.d/textmate.el")
+; (setq textmate-completing-library 'grizzl)
+;(require 'textmate)
+;(textmate-mode)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Dash
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; emmet
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; (add-to-list 'load-path "~/Emacs/emmet/")
+(require 'emmet-mode)
+  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+  (add-hook 'html-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook  'emmet-mode)
+  (setq emmet-preview-default nil)
+  ; (add-hook 'emmet-mode-keymap (define-key map (kbd "tab") 'emmet-expand-line))
